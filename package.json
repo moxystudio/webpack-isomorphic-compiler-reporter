@@ -1,0 +1,75 @@
+{
+  "name": "webpack-isomorphic-compiler-reporter",
+  "version": "2.0.0",
+  "description": "Pretty reporting for webpack-isomorphic-compiler",
+  "keywords": [
+    "webpack",
+    "compiler",
+    "compilation",
+    "report",
+    "reporter",
+    "reporting"
+  ],
+  "author": "André Cruz <andre@moxy.studio>",
+  "license": "MIT",
+  "bugs": "https://github.com/moxystudio/webpack-isomorphic-compiler-reporter/issues",
+  "homepage": "https://github.com/moxystudio/webpack-isomorphic-compiler-reporter",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:moxystudio/webpack-isomorphic-compiler-reporter"
+  },
+  "main": "index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest --env node --coverage",
+    "prerelease": "npm t && npm run lint",
+    "release": "standard-version",
+    "precommit": "lint-staged",
+    "commitmsg": "commitlint -e $GIT_PARAMS"
+  },
+  "standard-version": {
+    "scripts": {
+      "posttag": "git push --follow-tags origin master && npm publish"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-angular"
+    ]
+  },
+  "peerDependencies": {
+    "webpack-isomorphic-compiler": "^1.0.0",
+    "webpack": ">=2.0.0 <4.0.0"
+  },
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "indent-string": "^3.2.0",
+    "lodash.wrap": "^4.1.1",
+    "webpack-sane-compiler-reporter": "^3.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^5.2.5",
+    "@commitlint/config-angular": "^4.3.0",
+    "eslint": "^4.13.1",
+    "eslint-config-moxy": "^4.1.2",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "lint-staged": "^6.0.0",
+    "standard-version": "^4.2.0",
+    "strip-ansi": "^4.0.0"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "test/"
+    ]
+  }
+}
