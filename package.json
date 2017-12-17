@@ -47,14 +47,13 @@
     ]
   },
   "peerDependencies": {
-    "webpack-isomorphic-compiler": "^1.0.0",
+    "webpack-isomorphic-compiler": "^2.0.0",
     "webpack": ">=2.0.0 <4.0.0"
   },
   "dependencies": {
     "chalk": "^2.3.0",
     "indent-string": "^3.2.0",
-    "lodash.wrap": "^4.1.1",
-    "webpack-sane-compiler-reporter": "^3.0.0"
+    "webpack-sane-compiler-reporter": "^3.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^5.2.5",
