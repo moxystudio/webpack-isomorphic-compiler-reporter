@@ -18,6 +18,8 @@
 
 Beautiful reporting for [webpack-isomorphic-compiler](https://github.com/moxystudio/webpack-isomorphic-compiler) compilation events.
 
+While [webpack-sane-compiler-reporter](https://github.com/moxystudio/webpack-sane-compiler-reporter) works fine with this compiler, the output is incomplete. This reporter is specially designed to be used with this compiler.
+
 <img src="images/output.png" alt="Example output" width="80%">
 
 
@@ -64,7 +66,7 @@ For convenience this package also exports the [renderers](lib/renderers.js) used
 const reporter = require('webpack-isomorphic-compiler-reporter');
 
 reporter(compiler, {
-    printStart: (stats) => `${reporter.renderers.renderStart()}\n`,
+    printError: (err) => `${reporter.renderers.renderError(err)}\n`,
 });
 ```
 

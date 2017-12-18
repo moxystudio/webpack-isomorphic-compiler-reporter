@@ -17,7 +17,7 @@ exports[`human errors should stop reporting if stop was called 1`] = `
      SERVER                             
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     Asset    Size
-    foo.js   10Kb
+    bar.js   10Kb
 
 "
 `;
@@ -34,7 +34,7 @@ In addition, you must use https://github.com/evanw/node-source-map-support to en
 "
 `;
 
-exports[`should calculate the correct duration 1`] = `
+exports[`should output the correct duration 1`] = `
 "● Compiling...
 ✔ Compilation succeeded (0ms)
 
@@ -46,7 +46,7 @@ exports[`should calculate the correct duration 1`] = `
      SERVER                             
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     Asset    Size
-    foo.js   10Kb
+    bar.js   10Kb
 
 ● Compiling...
 ✔ Compilation succeeded (200ms)
@@ -59,7 +59,7 @@ exports[`should calculate the correct duration 1`] = `
      SERVER                             
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     Asset    Size
-    foo.js   10Kb
+    bar.js   10Kb
 
 "
 `;
@@ -89,7 +89,7 @@ exports[`should render the correct output on success 1`] = `
      SERVER                             
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     Asset    Size
-    foo.js   10Kb
+    bar.js   10Kb
 
 "
 `;

@@ -3,26 +3,18 @@
 const path = require('path');
 const createReporter = require('../');
 const createCompiler = require('./util/createCompiler');
-const createStats = require('./util/createStats');
+const createCompilation = require('./util/createCompilation');
 const createWritter = require('./util/createWritter');
-
-const dateNow = 1513447567843;
-
-beforeEach(() => jest.spyOn(Date, 'now').mockImplementation(() => 1513447567843));
-afterEach(() => jest.restoreAllMocks());
 
 it('should render the correct output on success', () => {
     const compiler = createCompiler();
     const writter = createWritter();
-    const stats = {
-        client: createStats(),
-        server: createStats(),
-    };
+    const compilation = createCompilation();
 
     createReporter(compiler, { write: writter });
 
     compiler.emit('begin');
-    compiler.emit('end', stats);
+    compiler.emit('end', compilation);
 
     expect(writter.getOutput()).toMatchSnapshot();
 });
@@ -30,9 +22,7 @@ it('should render the correct output on success', () => {
 it('should render the correct output on failure', () => {
     const compiler = createCompiler();
     const writter = createWritter();
-    const stats = createStats(true);
     const error = Object.assign(new Error('Error message'), {
-        stats,
         stack: [
             'at method1 (/path/to/file1.js:1:0)',
             'at method2 (/path/to/file2.js:1:0)',
@@ -47,23 +37,19 @@ it('should render the correct output on failure', () => {
     expect(writter.getOutput()).toMatchSnapshot();
 });
 
-it('should calculate the correct duration', () => {
+it('should output the correct duration', () => {
     const compiler = createCompiler();
     const writter = createWritter();
-    const stats = {
-        client: createStats(),
-        server: createStats(),
-    };
+    const compilation = createCompilation();
 
     createReporter(compiler, { write: writter });
 
     compiler.emit('begin');
-    compiler.emit('end', stats);
+    compiler.emit('end', compilation);
 
-    Date.now.mockImplementation(() => dateNow + 100);
+    compilation.duration = 200;
     compiler.emit('begin');
-    Date.now.mockImplementation(() => dateNow + 300);
-    compiler.emit('end', stats);
+    compiler.emit('end', compilation);
 
     expect(writter.getOutput()).toMatchSnapshot();
 });
@@ -117,20 +103,17 @@ describe('human errors', () => {
     it('should stop reporting if stop was called', () => {
         const compiler = createCompiler();
         const writter = createWritter();
-        const stats = {
-            client: createStats(),
-            server: createStats(),
-        };
+        const compilation = createCompilation();
 
         const { stop } = createReporter(compiler, { write: writter });
 
         compiler.emit('begin');
-        compiler.emit('end', stats);
+        compiler.emit('end', compilation);
 
         stop();
 
         compiler.emit('begin');
-        compiler.emit('end', stats);
+        compiler.emit('end', compilation);
 
         expect(writter.getOutput()).toMatchSnapshot();
     });
