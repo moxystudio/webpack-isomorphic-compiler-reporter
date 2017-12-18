@@ -18,7 +18,7 @@
 
 Beautiful reporting for [webpack-isomorphic-compiler](https://github.com/moxystudio/webpack-isomorphic-compiler) compilation events.
 
-While [webpack-sane-compiler-reporter](https://github.com/moxystudio/webpack-sane-compiler-reporter) works fine with this compiler, the output is incomplete. This reporter is specially designed to be used with this compiler.
+While [webpack-sane-compiler-reporter](https://github.com/moxystudio/webpack-sane-compiler-reporter) works fine with this compiler, the output is incomplete. This reporter is specially designed to be isomorphic aware.
 
 <img src="images/output.png" alt="Example output" width="80%">
 
@@ -40,7 +40,7 @@ const { stop, options } = startReporting(compiler, {/* options */});
 // Furthermore, you have access to the options that were computed by the merge of provided options and the defaults
 ```
 
-### Available options:
+### Available options
 
 | Name   | Description   | Type     | Default |
 | ------ | ------------- | -------- | ------- |
@@ -54,10 +54,6 @@ const { stop, options } = startReporting(compiler, {/* options */});
 | [printError](https://github.com/moxystudio/webpack-sane-compiler-reporter/blob/fc0e3a804e8854a9115d284e95bfe2218fd82de6/index.js#L22) | Function responsible for generating a message of a Error instance | function | ![Example output](images/error.png) |
 
 
-### API
-
-As shown in the [usage](#usage) section above, the result of adding reporting on a compiler is a function that, when invoked, stops listening to the compiler events, hence halting any further output.
-
 ### Other exports
 
 For convenience this package also exports the [renderers](lib/renderers.js) used internally:
@@ -69,6 +65,14 @@ reporter(compiler, {
     printError: (err) => `${reporter.renderers.renderError(err)}\n`,
 });
 ```
+
+## Related projects
+
+You may also want to look at:
+
+- [webpack-isomorphic-compiler-reporter](https://github.com/moxystudio/webpack-isomorphic-compiler-reporter): Beautiful reporting for this compiler
+- [webpack-sane-compiler-notifier](https://github.com/moxystudio/webpack-sane-compiler-notifier): Receive OS notifications for this compiler
+- [webpack-sane-compiler](https://github.com/moxystudio/webpack-sane-compiler): A webpack compiler wrapper that provides a nicer API
 
 
 ## Tests
