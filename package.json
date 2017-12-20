@@ -53,7 +53,7 @@
   "dependencies": {
     "chalk": "^2.3.0",
     "indent-string": "^3.2.0",
-    "webpack-sane-compiler-reporter": "^3.0.2"
+    "webpack-sane-compiler-reporter": "^3.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^5.2.5",
