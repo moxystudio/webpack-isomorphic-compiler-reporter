@@ -2,7 +2,9 @@
 
 const startSaneReporting = require('webpack-sane-compiler-reporter');
 const indentString = require('indent-string');
+
 const renderers = require('./lib/renderers');
+const symbols = require('./lib/symbols');
 const checkHumanErrors = require('./lib/checkHumanErrors');
 
 function startReporting(compiler, options) {
@@ -34,3 +36,4 @@ function startReporting(compiler, options) {
 
 module.exports = startReporting;
 module.exports.renderers = renderers;
+module.exports.symbols = symbols;

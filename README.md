@@ -56,6 +56,8 @@ const { stop, options } = startReporting(compiler, {/* options */});
 
 ### Other exports
 
+#### renderers
+
 For convenience this package also exports the [renderers](lib/renderers.js) used internally:
 
 ```js
@@ -66,13 +68,17 @@ reporter(compiler, {
 });
 ```
 
-## Related projects
+#### symbols
 
-You may also want to look at:
+You can also access the [symbols](lib/symbols.js) that precede some messages.
 
-- [webpack-isomorphic-compiler-reporter](https://github.com/moxystudio/webpack-isomorphic-compiler-reporter): Beautiful reporting for this compiler
-- [webpack-sane-compiler-notifier](https://github.com/moxystudio/webpack-sane-compiler-notifier): Receive OS notifications for this compiler
-- [webpack-sane-compiler](https://github.com/moxystudio/webpack-sane-compiler): A webpack compiler wrapper that provides a nicer API
+```js
+const reporter = require('webpack-isomorphic-compiler-reporter');
+
+reporter(compiler, {
+    printStart: () => `${reporter.symbols.start} A iniciar a compilação...\n`,
+});
+```
 
 
 ## Tests
