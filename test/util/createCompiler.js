@@ -21,9 +21,20 @@ module.exports = (overrides = {}) => {
         server: {
             webpackConfig: {
                 output: {
+                    path: '/build',
+                    publicPath: '/build/',
                     libraryTarget: 'this',
                 },
                 target: 'node',
+            },
+        },
+
+        client: {
+            webpackConfig: {
+                output: {
+                    path: '/build',
+                    publicPath: '/build/',
+                },
             },
         },
     }, overrides);
