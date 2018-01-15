@@ -59,8 +59,9 @@ describe('human errors', () => {
         const badServerConfig = {
             entry: path.resolve(`${__dirname}/files/simple.js`),
             output: {
-                path: path.resolve(`${__dirname}/../tmp`),
-                filename: 'client.js',
+                path: '/foo',
+                publicPath: '/foo/',
+                filename: 'server.js',
             },
             devtool: 'eval-source-map',
         };
@@ -81,7 +82,7 @@ describe('human errors', () => {
             entry: path.resolve(`${__dirname}/files/simple.js`),
             output: {
                 path: path.resolve(`${__dirname}/../tmp`),
-                filename: 'client.js',
+                filename: 'server.js',
             },
             devtool: 'eval-source-map',
         };

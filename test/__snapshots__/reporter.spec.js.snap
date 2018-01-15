@@ -26,10 +26,20 @@ exports[`human errors should warn about all human errors 1`] = `
 "● Compiling...
 WARN: Server \`output.target\` in webpack config should be set to \`node\`
 See https://webpack.js.org/configuration/target/#target
+
 WARN: Server \`output.libraryTarget\` in webpack config should be set to \`this\` or \`commonjs2\`
 See https://webpack.js.org/configuration/output/#output-librarytarget
+
 WARN: Server \`devtool\` in webpack config should be set to \`source-map\` or \`inline-source-map\`
 In addition, you must use https://github.com/evanw/node-source-map-support to enable source maps.
+
+WARN: The \`output.path\` should be the same in the webpack client & server configs
+Client output.path: /build
+Server output.path: /foo
+
+WARN: The \`output.publicPath\` should be the same in the webpack client & server configs
+Client output.publicPath: /build/
+Server output.publicPath: /foo/
 
 "
 `;
