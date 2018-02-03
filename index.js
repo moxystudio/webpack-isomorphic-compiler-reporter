@@ -2,7 +2,6 @@
 
 const startSaneReporting = require('webpack-sane-compiler-reporter');
 const indentString = require('indent-string');
-
 const renderers = require('./lib/renderers');
 const symbols = require('./lib/symbols');
 const checkHumanErrors = require('./lib/checkHumanErrors');
@@ -14,10 +13,10 @@ function startReporting(compiler, options) {
         printStats: ({ clientStats, serverStats }) => {
             let str = '';
 
-            str += `${renderers.banner('CLIENT')}\n`;
-            str += `${renderers.stats(clientStats)}\n\n`;
+            str += `\n${renderers.banner('CLIENT')}\n`;
+            str += `${renderers.stats(clientStats)}\n`;
 
-            str += `${renderers.banner('SERVER')}\n`;
+            str += `\n${renderers.banner('SERVER')}\n`;
             str += `${renderers.stats(serverStats)}\n\n`;
 
             return indentString(str, 4);

@@ -47,11 +47,12 @@ const { stop, options } = startReporting(compiler, {/* options */});
 | stats | Display webpack stats after each compilation | boolean/string (`true`, `false` or `'once'`) | true |
 | humanErrors| Detects human errors related to webpack configuration mistakes (done only once) | boolean | true |
 | write | Function responsible for printing/outputting the generated report messages | function | Prints to `stderr` |
-| [printStart](https://github.com/moxystudio/webpack-sane-compiler-reporter/blob/fc0e3a804e8854a9115d284e95bfe2218fd82de6/index.js#L18) | Function responsible for generating a message for when a compilation starts | function | ![Example output](images/start.png) |
-| [printSuccess](https://github.com/moxystudio/webpack-sane-compiler-reporter/blob/fc0e3a804e8854a9115d284e95bfe2218fd82de6/index.js#L19) | Function responsible for generating a message when a compilation succeeds | function | ![Example output](images/success.png) |
-| [printFailure](https://github.com/moxystudio/webpack-sane-compiler-reporter/blob/fc0e3a804e8854a9115d284e95bfe2218fd82de6/index.js#L20)  |Function responsible for generating a message when a compilation fails | function | ![Example output](images/failure.png) |
-| [printStats](https://github.com/moxystudio/webpack-isomorphic-compiler-reporter/blob/0ab94b510a9a59d5bd311afc93315949acc8af2b/index.js#L12) | Function responsible for generating a message representing a WebpackStats instance | function | ![Example client  output](images/stats-client.png) ![Example server output](images/stats-server.png) |
-| [printError](https://github.com/moxystudio/webpack-sane-compiler-reporter/blob/fc0e3a804e8854a9115d284e95bfe2218fd82de6/index.js#L22) | Function responsible for generating a message of a Error instance | function | ![Example output](images/error.png) |
+| [printStart](https://github.com/moxystudio/webpack-sane-compiler-reporter/blob/a90fa12ab05508bb7e000612953c35321d28be4d/index.js#L19) | Function responsible for generating a message for when a compilation starts | function | ![Example output](images/start.png) |
+| [printSuccess](https://github.com/moxystudio/webpack-sane-compiler-reporter/blob/a90fa12ab05508bb7e000612953c35321d28be4d/index.js#L20) | Function responsible for generating a message when a compilation succeeds | function | ![Example output](images/success.png) |
+| [printFailure](https://github.com/moxystudio/webpack-sane-compiler-reporter/blob/a90fa12ab05508bb7e000612953c35321d28be4d/index.js#L21) | Function responsible for generating a message when a compilation fails | function | ![Example output](images/failure.png) |
+| [printInvalidate](https://github.com/moxystudio/webpack-sane-compiler-reporter/blob/a90fa12ab05508bb7e000612953c35321d28be4d/index.js#L22) | Function responsible for generating a message when [invalidate()](https://github.com/moxystudio/webpack-sane-compiler#watchoptions-handler) was called when watching | function | ![Example output](images/invalidate.png) |
+| [printStats](https://github.com/moxystudio/webpack-isomorphic-compiler-reporter/blob/master/index.js#L13) | Function responsible for generating a message representing a WebpackStats instance | function | ![Example client  output](images/stats-client.png) ![Example server output](images/stats-server.png) |
+| [printError](https://github.com/moxystudio/webpack-sane-compiler-reporter/blob/a90fa12ab05508bb7e000612953c35321d28be4d/index.js#L24) | Function responsible for generating a message of a Error instance | function | ![Example output](images/error.png) |
 
 
 ### Other exports
