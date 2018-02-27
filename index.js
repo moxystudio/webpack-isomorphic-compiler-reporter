@@ -4,12 +4,9 @@ const startSaneReporting = require('webpack-sane-compiler-reporter');
 const indentString = require('indent-string');
 const renderers = require('./lib/renderers');
 const symbols = require('./lib/symbols');
-const checkHumanErrors = require('./lib/checkHumanErrors');
 
 function startReporting(compiler, options) {
     options = {
-        humanErrors: true,
-
         printStats: ({ clientStats, serverStats }) => {
             let str = '';
 
@@ -25,12 +22,7 @@ function startReporting(compiler, options) {
     };
 
     // Start reporting
-    const reporter = startSaneReporting(compiler, options);
-
-    // Check for human errors
-    reporter.options.humanErrors && compiler.once('begin', () => checkHumanErrors(compiler, reporter.options));
-
-    return reporter;
+    return startSaneReporting(compiler, options);
 }
 
 module.exports = startReporting;

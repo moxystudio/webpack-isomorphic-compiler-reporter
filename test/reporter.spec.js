@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require('path');
 const createReporter = require('../');
 const createCompiler = require('./util/createCompiler');
 const createCompilation = require('./util/createCompilation');
@@ -52,70 +51,4 @@ it('should output the correct duration', () => {
     compiler.emit('end', compilation);
 
     expect(writter.getOutput()).toMatchSnapshot();
-});
-
-describe('human errors', () => {
-    it('should warn about all human errors', () => {
-        const badServerConfig = {
-            entry: path.resolve(`${__dirname}/files/simple.js`),
-            output: {
-                path: '/foo',
-                publicPath: '/foo/',
-                filename: 'server.js',
-            },
-            devtool: 'eval-source-map',
-        };
-        const compiler = createCompiler({
-            server: { webpackConfig: badServerConfig },
-        });
-        const writter = createWritter();
-
-        createReporter(compiler, { write: writter });
-
-        compiler.emit('begin');
-
-        expect(writter.getOutput()).toMatchSnapshot();
-    });
-
-    it('should not warn about human errors if `options.humanErrors` is false', () => {
-        const badServerConfig = {
-            entry: path.resolve(`${__dirname}/files/simple.js`),
-            output: {
-                path: path.resolve(`${__dirname}/../tmp`),
-                filename: 'server.js',
-            },
-            devtool: 'eval-source-map',
-        };
-        const compiler = createCompiler({
-            server: { webpackConfig: badServerConfig },
-        });
-        const writter = createWritter();
-
-        createReporter(compiler, {
-            write: writter,
-            humanErrors: false,
-        });
-
-        compiler.emit('begin');
-
-        expect(writter.getOutput()).toMatchSnapshot();
-    });
-
-    it('should stop reporting if stop was called', () => {
-        const compiler = createCompiler();
-        const writter = createWritter();
-        const compilation = createCompilation();
-
-        const { stop } = createReporter(compiler, { write: writter });
-
-        compiler.emit('begin');
-        compiler.emit('end', compilation);
-
-        stop();
-
-        compiler.emit('begin');
-        compiler.emit('end', compilation);
-
-        expect(writter.getOutput()).toMatchSnapshot();
-    });
 });
