@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.1"></a>
+## [1.3.1](https://github.com/moxystudio/webpack-isomorphic-compiler-reporter/compare/v1.3.0...v1.3.1) (2018-02-27)
+
+
+### Bug Fixes
+
+* remove `humanErrors` because it was too opiniated ([#17](https://github.com/moxystudio/webpack-isomorphic-compiler-reporter/issues/17)) ([c9f1154](https://github.com/moxystudio/webpack-isomorphic-compiler-reporter/commit/c9f1154))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/moxystudio/webpack-isomorphic-compiler-reporter/compare/v1.2.0...v1.3.0) (2018-02-03)
 
