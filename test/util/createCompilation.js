@@ -1,6 +1,8 @@
 'use strict';
 
-module.exports = () => ({
+const merge = require('lodash/merge');
+
+module.exports = (overrides) => merge({
     clientStats: {
         toString() {
             return [
@@ -24,4 +26,4 @@ module.exports = () => ({
         endTime: 0,
     },
     duration: 0,
-});
+}, overrides);
