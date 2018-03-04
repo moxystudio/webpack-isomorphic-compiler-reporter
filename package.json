@@ -47,8 +47,7 @@
     ]
   },
   "peerDependencies": {
-    "webpack-isomorphic-compiler": ">= 2.0.0 <4.0.0",
-    "webpack": ">=2.0.0 <4.0.0"
+    "webpack-isomorphic-compiler": ">= 2.0.0 <4.0.0"
   },
   "dependencies": {
     "chalk": "^2.3.0",
