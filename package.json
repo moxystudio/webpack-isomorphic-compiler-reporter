@@ -1,6 +1,6 @@
 {
   "name": "webpack-isomorphic-compiler-reporter",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Pretty reporting for webpack-isomorphic-compiler",
   "keywords": [
     "webpack",
