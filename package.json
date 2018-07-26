@@ -55,15 +55,15 @@
     "webpack-sane-compiler-reporter": "^3.3.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^6.0.1",
-    "@commitlint/config-conventional": "^6.0.2",
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.0",
     "eslint": "^4.13.1",
     "eslint-config-moxy": "^5.0.0",
     "husky": "^0.14.3",
     "jest": "^22.0.0",
-    "lint-staged": "^7.0.0",
+    "lint-staged": "^7.2.0",
     "lodash.merge": "^4.6.1",
-    "standard-version": "^4.2.0",
+    "standard-version": "^4.4.0",
     "strip-ansi": "^4.0.0"
   },
   "jest": {
